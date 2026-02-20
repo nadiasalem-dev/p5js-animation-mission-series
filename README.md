@@ -2,7 +2,7 @@
 
 This repository documents a structured progression of small interactive programming exercises built using p5.js.
 
-The projects were created as focused practice to strengthen visual programming foundations, animation logic, and interactive behavior before building larger applications.
+The projects were created as focused practice to strengthen visual programming foundations, animation logic, and interactive behavior before moving into more complex applications.
 
 ---
 
@@ -23,7 +23,7 @@ Each mission isolates a specific behavior (movement, color change, constraints, 
 
 ---
 
-## 🔵 Object-Oriented Phase
+## 🔵 Object-Oriented Phase (Completed Through Mission 3)
 
 This phase transitions the same animation concepts into object-oriented design.
 
@@ -33,9 +33,10 @@ Concepts practiced:
 - Delegating behavior to objects
 - Managing multiple instances using arrays
 - Edge handling within class responsibility
-- Separation of concerns
+- Separation of detection and collision response
+- Independent 2D velocity (dx / dy)
 
-The goal is to move from single-object procedural logic to scalable object-based systems.
+The goal is to move from single-object procedural logic to scalable object-based systems while improving architectural clarity.
 
 ---
 
