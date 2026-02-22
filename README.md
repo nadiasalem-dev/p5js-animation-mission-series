@@ -23,7 +23,7 @@ Each mission isolates a specific behavior (movement, color change, constraints, 
 
 ---
 
-## 🔵 Object-Oriented Phase (Completed Through Mission 3)
+## 🔵 Object-Oriented Phase (Completed through Mission 4 (color change on collision with collision gating))
 
 This phase transitions the same animation concepts into object-oriented design.
 
