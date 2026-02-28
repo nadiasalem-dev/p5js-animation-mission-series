@@ -1,29 +1,33 @@
-// Mission 4 (OOP): Color Change on Collision
-// Extends edge-handling logic by triggering a color change
-// when a collision event occurs.
+// Mission 5 (OOP): State-Based Behavior
+// Extends previous missions by introducing a simple state machine.
+// Each Ball instance independently transitions through:
+// normal → fast → stun → normal
+// based on collision counts and frame timing.
+
 let balls = [];
 
 function setup() {
-  createCanvas(500, 500);
+  createCanvas(200, 500);
 
-  const ballCount = (width + height)/4 ;
+  const ballCount = 10;
 
   for (let i = 0; i < ballCount; i++) {
-    // Generate independent random velocities for both axes
+
+    // Generate independent base velocities for both axes
     let xSpeed = random(1, 5);
     let ySpeed = random(1, 5);
 
-    // Randomly assign direction for x velocity
+    // Randomly assign direction to horizontal velocity
     if (floor(random(2)) === 1) {
       xSpeed = -xSpeed;
     }
 
-    // Randomly assign direction for y velocity
+    // Randomly assign direction to vertical velocity
     if (floor(random(2)) === 1) {
       ySpeed = -ySpeed;
     }
 
-    // Randomize size
+    // Randomize dimensions
     let xSize = ceil(random(50));
     let ySize = ceil(random(50));
 
@@ -31,6 +35,7 @@ function setup() {
     let x = random(xSize / 2, width - xSize / 2);
     let y = random(ySize / 2, height - ySize / 2);
 
+    // Create Ball instance with base velocity and size
     balls.push(
       new Ball(
         x,
@@ -50,8 +55,8 @@ function draw() {
 
   // Update and render each Ball instance
   for (let i = 0; i < balls.length; i++) {
-    balls[i].move();     // Update position
-    balls[i].bounce();   // Handle edge collision response
-    balls[i].display();  // Render object
+    balls[i].move();     // Apply state-controlled movement
+    balls[i].bounce();   // Perform direction-aware collision handling
+    balls[i].display();  // Render to canvas
   }
 }
