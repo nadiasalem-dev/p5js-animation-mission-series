@@ -29,7 +29,7 @@ function setup() {
 
     // Randomize dimensions
     let xSize = ceil(random(50));
-//    let ySize = ceil(random(50));
+    let ySize = ceil(random(50));
 
     // Spawn within safe bounds based on object size
     let x = random(xSize / 2, width - xSize / 2);
@@ -43,7 +43,7 @@ function setup() {
         xSpeed,
         ySpeed,
         xSize,
-        ySize,
+        xSize,
         [random(255), random(255), random(255)]
       )
     );
@@ -59,5 +59,18 @@ function draw() {
     balls[i].bounce();   // Perform direction-aware collision handling
     balls[i].display();  // Render to canvas
   }
-
+  // Collision detection for circles.
+  // Later missions will change it to ellipses
+  for(let i = 0; i < balls.length; i++){
+    for(let j = i+ 1; j < balls.length; j++){
+      const a = balls[i];
+      const b = balls[j];
+      let dx = b.x - a.x;
+      let dy = b.y - a.y;
+      if((dx * dx + dy * dy) < (a.halfWidth + b.halfWidth) * (a.halfWidth + b.halfWidth)){
+        a.changeColor();
+        b.changeColor();
+      }
+    }
+  }
 }
